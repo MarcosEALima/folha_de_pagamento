@@ -5,11 +5,17 @@
 typedef struct {
     char nome[50];
     int tipo; // 0 para CLT, 1 para terceirizado
-    float salario_fixo; // Para CLT
-    float valor_hora; // Para terceirizados
-    int horas_trabalhadas; // Para terceirizados
     int contratos_assinados;
     float comissao_por_contrato;
+    union {
+        struct {
+            float salario_fixo;
+        }clt; 
+        struct {
+            float valor_hora;
+            int horas_trabalhadas;
+        }terceirizado;
+    }dados;          
 } Funcionario;
 
 void cadastrarFuncionario(Funcionario *f) {
@@ -19,12 +25,12 @@ void cadastrarFuncionario(Funcionario *f) {
     scanf("%d", &f->tipo);
     if (f->tipo == 0) {
         printf("Salario fixo: ");
-        scanf("%f", &f->salario_fixo);
+        scanf("%f", &f->dados.clt.salario_fixo);
     } else {
         printf("Valor por hora: ");
-        scanf("%f", &f->valor_hora);
+        scanf("%f", &f->dados.terceirizado.valor_hora);
         printf("Horas trabalhadas: ");
-        scanf("%d", &f->horas_trabalhadas);
+        scanf("%d", &f->dados.terceirizado.horas_trabalhadas);
     }
     printf("Contratos assinados: ");
     scanf("%d", &f->contratos_assinados);
@@ -35,9 +41,9 @@ void cadastrarFuncionario(Funcionario *f) {
 float calcularPagamento(Funcionario f) {
     float pagamento = 0;
     if (f.tipo == 0) {
-        pagamento = f.salario_fixo;
+        pagamento = f.dados.clt.salario_fixo;
     } else {
-        pagamento = f.valor_hora * f.horas_trabalhadas;
+        pagamento = f.dados.terceirizado.valor_hora * f.dados.terceirizado.horas_trabalhadas;
     }
     pagamento += f.contratos_assinados * f.comissao_por_contrato;
     return pagamento;
