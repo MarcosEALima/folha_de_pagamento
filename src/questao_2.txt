@@ -1,0 +1,11 @@
+Para implementar uma rotina de testes automatizados para a questão 1, pensei em seguir os seguintes passos:
+
+Identificar os casos de teste: Escreva testes individuais para cada cenário identificado. Cada teste deve incluir a criação dos funcionários e a chamada da função calcularPagamento, comparando o valor retornado com o valor esperado.
+
+Automatizar os testes: Utilize uma ferramenta de teste automatizado, como frameworks de testes em linguagem C (por exemplo, CUnit).
+
+Analisar os resultados: Analise os resultados dos testes automatizados para identificar possíveis erros ou falhas na implementação. Se algum teste falhar, verifique o código para determinar a causa do problema e faça as correções necessárias.
+
+Repetir o processo: À medida que novas implementações ou atualizações forem feitas, repita o processo de escrita de novos casos de teste, automação e execução para garantir que as alterações não introduzam novos erros.
+
+Manter os testes atualizados: À medida que novas funcionalidades ou alterações forem feitas no código, é importante manter os testes automatizados atualizados para garantir que todas as partes do sistema estejam funcionando corretamente.
