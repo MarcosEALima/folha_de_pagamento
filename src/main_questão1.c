@@ -80,7 +80,7 @@ int main() {
     //exibe o custo total da folha de pagamento da empresa
     printf("\nCusto total da folha de pagamento da empresa: R$%.2f\n", folha_total);
 
-    //çibera a memória alocada
+    //libera a memória alocada
     free(funcionarios);
     return 0;
 }
